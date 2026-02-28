@@ -22,3 +22,7 @@ while True:
     )
     if n == "0":
         break
+    elif n == "1":
+        task_1()
+    else:
+        print("Нет такой задачи")
