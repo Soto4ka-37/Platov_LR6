@@ -129,6 +129,28 @@ def task_5():
     print(rect.GetPerimeter())
     print(rect.ToString())
     
+# ЗАДАЧА 6
+def task_6():
+    n, m = map(int, input("Введите N и M -> ").split())
+    grid = []
+    for _ in range(n):
+        grid.append(list(map(int, input().split())))
+    
+    dp = [[0] * m for _ in range(n)]
+    dp[0][0] = grid[0][0]
+    
+    for i in range(1, n):
+        dp[i][0] = dp[i-1][0] + grid[i][0]
+    
+    for j in range(1, m):
+        dp[0][j] = dp[0][j-1] + grid[0][j]
+    
+    for i in range(1, n):
+        for j in range(1, m):
+            dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+    
+    print(dp[n-1][m-1])
+    
 # ОСНОВНАЯ ПРОГРАММА
 while True:
     print(
@@ -139,7 +161,7 @@ while True:
             "3 - Задача 3\n"
             "4 - Задача 4\n"
             "5 - Задача 5\n"
-
+            "6 - Задача 6\n"
         )
     )
     n = input("Введите номер задачи -> ")
@@ -156,5 +178,7 @@ while True:
         task_4()
     elif n == "5":
         task_5()
+    elif n == "6":
+        task_6()
     else:
         print("Нет такой задачи")
