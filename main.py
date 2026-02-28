@@ -1,4 +1,4 @@
-
+# ЗАДАЧА 1
 def task_1():
     n = int(input("Введите количество городов -> "))
     prices = list(map(int, input("Введите цены через пробел -> ").split()))
@@ -11,6 +11,7 @@ def task_1():
                 break
         print(found)
 
+# ЗАДАЧА 2
 def task_2():
     queue = []
     while True:
@@ -46,6 +47,7 @@ def task_2():
             print('bye')
             break
 
+# ЗАДАЧА 3
 def task_3():
     parts = input("Введите коэффициенты -> ").split()
     coefficients = list(map(float, parts))
@@ -77,7 +79,8 @@ def task_3():
     
     roots.sort()
     print(*roots)
-    
+
+# ЗАДАЧА 4
 def task_4():
     first = list(map(int, input("Введите карты первого игрока -> ").split()))
     second = list(map(int, input("Введите карты второго игрока -> ").split()))
@@ -103,7 +106,30 @@ def task_4():
         print("second")
     
     print(moves)
+
+# ЗАДАЧА 5
+class Rectangle:
+    def __init__(self, width, height):
+        self.Width = width
+        self.Height = height
     
+    def GetArea(self):
+        return self.Width * self.Height
+    
+    def GetPerimeter(self):
+        return 2 * (self.Width + self.Height)
+    
+    def ToString(self):
+        return f"Rectangle {self.Width}x{self.Height}"
+    
+def task_5():
+    width, height = map(int, input("Введите ширину и высоту -> ").split())
+    rect = Rectangle(width, height)
+    print(rect.GetArea())
+    print(rect.GetPerimeter())
+    print(rect.ToString())
+    
+# ОСНОВНАЯ ПРОГРАММА
 while True:
     print(
         (
@@ -112,6 +138,7 @@ while True:
             "2 - Задача 2\n"
             "3 - Задача 3\n"
             "4 - Задача 4\n"
+            "5 - Задача 5\n"
 
         )
     )
@@ -127,5 +154,7 @@ while True:
         task_3()
     elif n == "4":
         task_4()
+    elif n == "5":
+        task_5()
     else:
         print("Нет такой задачи")
