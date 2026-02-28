@@ -15,7 +15,7 @@ def task_2():
     queue = []
     while True:
         command = input().split()
-        if len(command < 2):
+        if len(command) < 2:
             print('Неверный ввод')
             continue
         
