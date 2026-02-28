@@ -77,7 +77,33 @@ def task_3():
     
     roots.sort()
     print(*roots)
-
+    
+def task_4():
+    first = list(map(int, input("Введите карты первого игрока -> ").split()))
+    second = list(map(int, input("Введите карты второго игрока -> ").split()))
+    
+    moves = 0
+    
+    while len(first) > 0 and len(second) > 0:
+        moves += 1
+        
+        card1 = first.pop(0)
+        card2 = second.pop(0)
+        
+        if card1 > card2:
+            first.append(card1)
+            first.append(card2)
+        else:
+            second.append(card2)
+            second.append(card1)
+    
+    if len(first) > 0:
+        print("first")
+    else:
+        print("second")
+    
+    print(moves)
+    
 while True:
     print(
         (
@@ -99,5 +125,7 @@ while True:
         task_2()
     elif n == "3":
         task_3()
+    elif n == "4":
+        task_4()
     else:
         print("Нет такой задачи")
