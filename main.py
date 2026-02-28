@@ -15,6 +15,9 @@ def task_2():
     queue = []
     while True:
         command = input().split()
+        if len(command < 2):
+            print('Неверный ввод')
+            continue
         
         if command[0] == 'push':
             queue.append(int(command[1]))
@@ -47,14 +50,17 @@ while True:
     print(
         (
             "0 - Выход\n"
-            "1 - Задача 1"
+            "1 - Задача 1\n"
+            "2 - Задача 2"
         )
     )
-    n = input()
+    n = input("Введите номер задачи -> ")
     
     if n == "0":
         break
     elif n == "1":
         task_1()
+    elif n == "2":
+        task_2()
     else:
         print("Нет такой задачи")
