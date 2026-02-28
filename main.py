@@ -1,6 +1,10 @@
 # ЗАДАЧА 1
 def task_1():
     n = int(input("Введите количество городов -> "))
+    if n < 2 or n > 100:
+        print('Неверный ввод')
+        return
+        
     prices = list(map(int, input("Введите цены через пробел -> ").split()))
     
     for i in range(n):
@@ -132,9 +136,20 @@ def task_5():
 # ЗАДАЧА 6
 def task_6():
     n, m = map(int, input("Введите N и M -> ").split())
+    if n > 20:
+        print('Неверный ввод')
+        return
+    if m > 20:
+        print('Неверный ввод')
+        return
+    
     grid = []
     for _ in range(n):
-        grid.append(list(map(int, input().split())))
+        l = list(map(int, input().split()))
+        for i in l:
+            if i < 0 or i > 100:
+                print('Неверный ввод')
+                return
     
     dp = [[0] * m for _ in range(n)]
     dp[0][0] = grid[0][0]
