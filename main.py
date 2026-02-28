@@ -15,11 +15,11 @@ def task_2():
     queue = []
     while True:
         command = input().split()
-        if len(command) < 2:
-            print('Неверный ввод')
-            continue
         
         if command[0] == 'push':
+            if len(command) < 2:
+                print('Неверный ввод')
+                continue
             queue.append(int(command[1]))
             print('ok')
         
