@@ -11,15 +11,47 @@ def task_1():
                 break
         print(found)
 
+def task_2():
+    queue = []
+    while True:
+        command = input().split()
+        
+        if command[0] == 'push':
+            queue.append(int(command[1]))
+            print('ok')
+        
+        elif command[0] == 'pop':
+            if len(queue) == 0:
+                print('error')
+            else:
+                print(queue.pop(0))
+        
+        elif command[0] == 'front':
+            if len(queue) == 0:
+                print('error')
+            else:
+                print(queue[0])
+        
+        elif command[0] == 'size':
+            print(len(queue))
+        
+        elif command[0] == 'clear':
+            queue.clear()
+            print('ok')
+        
+        elif command[0] == 'exit':
+            print('bye')
+            break
+        
 while True:
-    n = input()
-    
     print(
         (
             "0 - Выход\n"
             "1 - Задача 1"
         )
     )
+    n = input()
+    
     if n == "0":
         break
     elif n == "1":
